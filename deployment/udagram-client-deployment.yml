@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-client
+  labels:
+    app: udagram-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-client
+  template:
+    metadata:
+      labels:
+        app: udagram-client
+    spec:
+      containers:
+      - name: udagram-client
+        image: brodarte/udagram-client 
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always    
+      restartPolicy: Always
